@@ -17,31 +17,31 @@ public class Soccer {
 
         // Player 2
         System.out.println("======= Player 2 ==========");
-        System.out.println(player2.getName());
-        System.out.println(player2.getAge());
-        System.out.println(player2.getScoredGoals());
-        System.out.println(player2.getTeam());
+        System.out.println("Name: " + player2.getName());
+        System.out.println("Age " + player2.getAge());
+        System.out.println("Scores " + player2.getScoredGoals());
+        System.out.println("Team " + player2.getTeam());
 
         // Player 3
         System.out.println("======= Player 3 ==========");
-        System.out.println(player3.getName());
-        System.out.println(player3.getAge());
-        System.out.println(player3.getScoredGoals());
-        System.out.println(player3.getTeam());
+        System.out.println("Name " + player3.getName());
+        System.out.println("Age " + player3.getAge());
+        System.out.println("Scores " + player3.getScoredGoals());
+        System.out.println("Team " + player3.getTeam());
 
         // Player 4
         System.out.println("======= Player 4 ==========");
-        System.out.println(player4.getName());
-        System.out.println(player4.getAge());
-        System.out.println(player4.getScoredGoals());
-        System.out.println(player4.getTeam());
+        System.out.println("Name " + player4.getName());
+        System.out.println("Age " + player4.getAge());
+        System.out.println("Scores " + player4.getScoredGoals());
+        System.out.println("Team " + player4.getTeam());
 
         // Player 5
         System.out.println("======= Player 5 ==========");
-        System.out.println(player5.getName());
-        System.out.println(player5.getAge());
-        System.out.println(player5.getScoredGoals());
-        System.out.println(player5.getTeam());
+        System.out.println("Name " + player5.getName());
+        System.out.println("Age " + player5.getAge());
+        System.out.println("Scores " + player5.getScoredGoals());
+        System.out.println("Team " + player5.getTeam());
 
     }
 }
