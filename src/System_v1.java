@@ -6,9 +6,16 @@ public class System_v1 {
         Person person2 = new Person("Jonathan", "79", "john22", "myPassword");
         Customer customer = new Customer("John", "25", "jeff2", "myPassword22");
         Customer customer2 = new Customer("John", "25", "jeff22", "myPassword22");
+        customer2.setBalance(200);
+        customer.setBalance(3000);
+
         Manager manager = new Manager("Granny", "75", "granny200", "password200");
+        Manager manager2 = new Manager("Julie", "24", "granny200", "password200");
+
         System.out.println(person1.equals(person2));
-        System.out.println(customer2);
+        System.out.println(customer.equals(customer2));
+        System.out.println(manager.equals(manager2));
+
     }
 }
 
@@ -122,9 +129,10 @@ class Manager extends Person {
 
 
 
+
 //zero when you created the object so it should assign 0 in the constructor)
 //
-////        Required extra functions: getActionNumber, setActionNumber and getManagerID
+////  Required extra functions: getActionNumber, setActionNumber and getManagerID
 //
 ////        Overide toString again and print extra managerID
 //override equals function and check if username and password matchs or managerIDand password match.  IF any of cases are correct we will return true.
