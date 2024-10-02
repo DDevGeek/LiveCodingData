@@ -66,7 +66,7 @@ class Customer extends Person {
         this.customerId = (int)(Math.random() * 1000);
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -111,6 +111,15 @@ class Manager extends Person {
         return managerId;
     }
 
+    public void updateMoney(Customer customer, double amount) {
+        double newBalance = customer.getBalance() + amount;
+        customer.setBalance(newBalance);
+        System.out.println("Balance Updated successfully");
+        System.out.println("Old balance " + customer.getBalance());
+        System.out.println("New balance " + newBalance);
+
+    }
+
     @Override
     public String toString() {
         return "Manager ID: " + this.managerId;
@@ -130,11 +139,23 @@ class Manager extends Person {
 
 
 
+
+
+//1- Create increase money and decrease money function from manager
+//
+//Create a function called updateMoney(Customer, changeAmount);
+//
+//then change the money of customer. change amount can be negative so basicly we need to do => previous amount + changeAmount into customer account.
+
+
+
+
+
 //zero when you created the object so it should assign 0 in the constructor)
 //
 ////  Required extra functions: getActionNumber, setActionNumber and getManagerID
 //
 ////        Overide toString again and print extra managerID
-//override equals function and check if username and password matchs or managerIDand password match.  IF any of cases are correct we will return true.
+//override equals function and check if username and password matchs or managerI Dand password match.  IF any of cases are correct we will return true.
 
 
