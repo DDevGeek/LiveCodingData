@@ -5,10 +5,10 @@ import Interfaces.Class;
 import Interfaces.Person;
 
 
-class Math implements Class {
+class Mathematics implements Class {
     List<String> attendanceList;
 
-    public Math() {
+    public Mathematics() {
         attendanceList = new ArrayList<>();
     }
 
@@ -128,7 +128,7 @@ class Students implements Person {
 
 class ClassMain {
     public static void main(String[] args) {
-        Class mathClass = new Math();
+        Class mathClass = new Mathematics();
         Class italianClass = new Italian();
 
         Students stude1 = new Students();
