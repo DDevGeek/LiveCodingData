@@ -213,7 +213,8 @@ class TwoDoorBMW extends FourDoorCar {
 
     @Override
     public String toString() {
-        return this.getCarBrand() + " " + this.getCarSpeed() + " " + this.getCarColor();
+        return "Brand: " + this.getCarBrand() + "\n  " + "Speed: " + this.getCarSpeed() + "\n  " + "Color: " + this.getCarColor() + "\n  " +
+                "Year: " + this.getYear() + "\n  " + "Mileage: " + this.getMileage() + "\n  " + "Power: " + this.getCarPower();
     }
 }
 

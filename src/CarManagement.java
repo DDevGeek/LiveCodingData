@@ -1,18 +1,16 @@
 import Interfaces.Car;
 
+import java.io.*;
 import java.util.*;
+import java.nio.file.Files;
 
 public class CarManagement {
     static Scanner scanner = new Scanner(System.in);
-    static Dealer dealer = new Dealer();
+    static Dealer dealer = Dealer.getInstance();;
 
     public static void main(String[] args) {
-        Dealer dealer = new Dealer(30000, "John", "5.5");
         Car toyota2 = new TwoDoorToyota("Toyota", "Gray", "330 mph", 2000, 30, 100);
         Car twoDoorBM2 = new TwoDoorBMW("BMW", "DarkRed", "200 mph", 2000, 30, 80);
-//        dealer.addCar(toyota2);
-//        dealer.addCar(twoDoorBM2);
-//        System.out.println(dealer);
         handler();
     }
 
@@ -61,7 +59,7 @@ public class CarManagement {
         System.out.print("Car Power: ");
         carPower = scanner.nextInt();
         Car newCar = new TwoDoorBMW(carName, carColor, carSpeed, carYear, carMileage, carPower);
-        dealer.addCar(newCar, "TwoDoorBMW");
+        dealer.addCar(newCar, newCar.getClass().getSimpleName());
 
     }
 
@@ -98,16 +96,25 @@ class Dealer {
     private String dealerRate;
     private int dealerBalance;
     final private Map<String, List<Car>> carList = new HashMap<>();
+    List<Car> carCategoryList = new ArrayList<>();
+    private static Dealer instance;
 
-    public Dealer(int dealerBalance, String dealerName, String dealerRate) {
-        this.dealerBalance = dealerBalance;
-        this.dealerName = dealerName;
-        this.dealerRate = dealerRate;
+//    private Dealer(int dealerBalance, String dealerName, String dealerRate) {
+//        this.dealerBalance = dealerBalance;
+//        this.dealerName = dealerName;
+//        this.dealerRate = dealerRate;
+//    }
+
+    private Dealer(){}
+
+    public static Dealer getInstance () {
+        if (instance == null) {
+           instance = new Dealer();
+        }
+
+        return instance;
     }
 
-    public Dealer() {
-
-    }
 
     public String getDealerName() {
         return dealerName;
@@ -137,11 +144,35 @@ class Dealer {
         return carList;
     }
 
+    private void saveDataToFile(Map<String, List<Car>> carsList) {
+        StringBuilder strb = new StringBuilder();
+        String filePath = "./src/Files/cars.txt";
+
+        try {
+            BufferedReader rd = new BufferedReader(new FileReader(filePath));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+            for (Map.Entry<String, List<Car>> list : carsList.entrySet()) {
+                for (Car car : list.getValue()) {
+                    strb.append(rd.readLine());
+                    strb.append(car);
+                }
+            }
+
+            writer.write(strb.toString());
+            writer.flush();
+            writer.close();
+        } catch(IOException e) {
+            System.out.println("Failed to save to file " + e);
+        }
+
+    }
+
     public void addCar(Car car, String carCategory) {
-        List<Car> carCategoryList = new ArrayList<>();
+        System.out.println("car added " + car);
         carCategoryList.add(car);
         carList.put(carCategory, carCategoryList);
-        System.out.println("Car added successfully");
+        this.saveDataToFile(carList);
+        System.out.println("Car added successfully" + carList);
     }
 
     @Override
