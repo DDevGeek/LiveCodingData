@@ -12,10 +12,8 @@ abstract class SimplePhone implements PhoneInt {
     List<CallerType> callerHistory = new ArrayList<>();
 
     @Override
-    public void call(CallerType caller) {
-        System.out.println("Who do you what to call?");
-        System.out.println();
-        System.out.print("Caller Name: ");
+    public void call() {
+        System.out.println("calling");
     }
 
     public void addContact(CallerType caller) {
@@ -132,6 +130,7 @@ class JonathanPhone extends SimplePhone {
             contactToMessage = scanner.nextInt();
             System.out.println();
             System.out.println("Enter your message for " + contacts.get(contactToMessage).getName());
+            System.out.print("_ ");
             message = scanner.nextLine();
             scanner.nextLine();
             System.out.println();
@@ -199,11 +198,6 @@ class JonathanPhone extends SimplePhone {
 
         }
 
-    }
-
-    @Override
-    public void call(CallerType caller) {
-        super.call(caller);
     }
 }
 
