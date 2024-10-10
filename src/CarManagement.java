@@ -159,6 +159,7 @@ class Dealer {
             }
 
             writer.write(strb.toString());
+            writer.newLine();
             writer.flush();
             writer.close();
         } catch(IOException e) {
@@ -182,5 +183,22 @@ class Dealer {
                 getDealerName() + "'s Ratings " + getDealerRate() + "\n" +
                 getDealerName() + "'s Cars" + showAllCars();
     }
+ }
+
+ class Dealers {
+    List<Dealer> dealers = new ArrayList<>();
+
+    public void dealersMenu() {
+        System.out.println("Welcome to dealers menu");
+        System.out.println("=========================");
+        System.out.println("1 - View All Dealers");
+        System.out.println("2 - Add A Dealer");
+        System.out.println("3 - Remove a Dealer");
+        System.out.println("0 - exit");
+    }
+
+
+
+
  }
 

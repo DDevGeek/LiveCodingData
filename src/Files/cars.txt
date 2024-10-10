@@ -1,16 +1,11 @@
-nullBrand: dded
-  Speed: 3232
+nullBrand: gozza22
+  Speed: 200
   Color: red
-  Year: 111
-  Mileage: 23121
-  Power: 0nullBrand: dedde
-  Speed: 3232
-  Color: deed
-  Year: 232
-  Mileage: 423
-  Power: 0nullBrand: Benz-121
-  Speed: 344
-  Color: red
-  Year: 2024
-  Mileage: 200
+  Year: 300
+  Mileage: 213
+  Power: 0nullBrand: def
+  Speed: 2323
+  Color: 2323
+  Year: 234
+  Mileage: 112
   Power: 0

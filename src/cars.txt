@@ -1,6 +1,0 @@
-Brand: BMW
- Speed: 2323
- Color: black
-Year: 2323
-Mileage: 212
-Power: 0
