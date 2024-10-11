@@ -197,6 +197,7 @@ class JonathanPhone extends SimplePhone {
     }
 
 
+
     public void textMenu() {
         int contactToMessage;
         int messageOption;
@@ -212,31 +213,48 @@ class JonathanPhone extends SimplePhone {
             System.out.print("Who do you want to Text? ");
             contactToMessage = scanner.nextInt();
             System.out.println();
-            System.out.println("Enter your message for " + contacts.get(contactToMessage).getName());
-            System.out.print("Title: _ ");
-            newText.setTitle(scanner.nextLine());
-            System.out.print("Message: _ ");
-            newText.setMessage(scanner.nextLine());
-//            System.out.println("Sent From " + ); // AM HERE TRYING TO ADD THE INFRMATION OF THE OWNER OF THE PHONE
-            scanner.nextLine();
-            System.out.println();
-            System.out.println("1 - Send");
-            System.out.println("2 - Discard");
-            System.out.println();
-            System.out.print("Send or Discard?: ");
-            messageOption = scanner.nextInt();
-            if (messageOption == 1) {
-                System.out.println();
-                System.out.println("Please wait...");
-                System.out.println("Message sent successfully 📨😊✅");
-                System.out.println();
-                break;
+
+            if (contacts.get(contactToMessage) != null) {
+                System.err.println("You currently don't have any contacts");
+                System.out.println("1 - Add Contact");
+                System.out.println("0 - Back to menu");
+                System.out.println("[Option] - ");
+                if (scanner.nextInt() == 1) {
+                    addContactMenu();
+                } else {
+                    System.out.println("Enter your message for " + contacts.get(contactToMessage).getName());
+                    scanner.nextLine();
+                    System.out.print("Title: _ ");
+                    newText.setTitle(scanner.nextLine());
+                    System.out.print("Message: _ ");
+                    newText.setMessage(scanner.nextLine());
+                    System.out.println("Sender " + phoneSettings.getPhoneOwner().getName());
+                    scanner.nextLine();
+                    System.out.println();
+                    System.out.println("1 - Send");
+                    System.out.println("2 - Discard");
+                    System.out.println();
+                    System.out.print("Send or Discard?: ");
+                    messageOption = scanner.nextInt();
+                    if (messageOption == 1) {
+                        System.out.println();
+                        System.out.println("Please wait...");
+                        System.out.println("Message sent successfully 📨😊✅");
+                        System.out.println();
+                        break;
+                    }
+
+                    if (scanner.nextInt() == 2) {
+                        System.out.println("Message Discarded");
+                        break;
+                    }
+                }
+
+                if (scanner.nextInt() == 0) {
+                    break;
+                }
             }
 
-            if (scanner.nextInt() == 2) {
-                System.out.println("Message Discarded");
-                break;
-            }
 
         }
     }
@@ -276,7 +294,7 @@ class JonathanPhone extends SimplePhone {
 
                 case 0 -> {
                     System.out.println("Shutting down the system...");
-                    System.out.println("Arrivederci 😎👋");
+                    System.out.println("Arrivederci " + phoneSettings.getPhoneOwner().getName().toUpperCase() + " 😎👋");
                     isRunning = false;
                     System.exit(0);
                 }
